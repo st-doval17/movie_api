@@ -5,17 +5,22 @@ const express = require("express"),
   path = require("path");
 const app = express();
 
+// a log.txt file is created in root directory
+const accessLogStream = fs.createWriteStream(__dirname + "/log.txt", {
+  flags: "a",
+});
+app.use(morgan("tiny", { stream: accessLogStream }));
+
+//log all requests
+app.use(morgan("tiny"));
+//to serve documentation.html from public folder
+app.use(express.static("public"));
+
 // GET route request
 app.get("/movies", (req, res) => res.json(top10Movies));
 app.get("/", (req, res) => {
   res.send("Welcome to myFlix, a movie app.");
 });
-
-//to serve documentation.html from public folder
-app.use(express.static("public"));
-
-//log all requests
-app.use(morgan("common"));
 
 //error message
 app.use((err, req, res, next) => {
