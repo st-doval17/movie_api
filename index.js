@@ -11,8 +11,6 @@ const accessLogStream = fs.createWriteStream(__dirname + "/log.txt", {
 });
 app.use(morgan("tiny", { stream: accessLogStream }));
 
-//log all requests
-app.use(morgan("tiny"));
 //to serve documentation.html from public folder
 app.use(express.static("public"));
 
