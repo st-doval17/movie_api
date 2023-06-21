@@ -1,2 +1,121 @@
-Welcome to myFlix API.
-This is a web application that will provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update their personal information, and create a list of their favorite movies. 
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>documentation API</title>
+  </head>
+
+  <body>
+    <h1>Welcome to myFlix API.</h1>
+    <p>
+      This is a web application that will provide users with access to
+      information about different movies, directors, and genres. Users will be
+      able to sign up, update their personal information, and create a list of
+      their favorite movies.
+    </p>
+
+    <table>
+        <!-- list of URL endpoints -->
+        <tr class="data_formats">
+            <td>Business Logic</td>
+            <td>URL</td>
+            <td>HTTP Method</td>
+            <td>Request Body Data Format</td>
+            <td>Response Body Data Format</td>
+        </tr>
+
+ <tr>
+  <td>Root directory</td>
+  <td>/</td>
+  <td>GET</td>
+  <td>none</td>
+  <td>A text welcoming user to page</td>
+ </tr>       
+ <!-- return all movies -->       
+<tr>
+    <td>Get a list of all movies</td>
+    <td>/movies</td>
+    <td>GET</td>
+    <td>none</td>
+    <td>A JSON object holding data about all the movies</td>
+</tr>
+
+<!-- return data about single movie by title -->
+<tr>
+    <td>Get data about a single movie by title</td>
+    <td>/movies/:title</td>
+    <td>GET</td>
+    <td>none</td>
+    <td>A JSON object holding data about a single movie, (containing: description, genre, director, image URL) by title</td>
+</tr>
+
+<!-- return data about a genre -->
+<tr>
+    <td>Get data about genre (description) by name/title</td>
+    <td>/movies/genre/:genre</td>
+    <td>GET</td>
+    <td>none</td>
+    <td>A JSON object holding data about description by genre</td>
+</tr>
+
+<!--return data about director by name -->
+<tr>
+    <td>Return data about a director (bio, birth year, death year) by name</td>
+    <td>/movies/directors/:name</td>
+    <td>GET</td>
+    <td>none</td>
+    <td>A JSON object holding data about a director (bio, birth year, death year) by name</td>
+</tr>
+
+<!-- allow users to register -->
+<tr>
+  <td>Allow new users to register</td>
+  <td>/users</td>
+  <td>POST</td>
+  <td>A JSON object holding data about a new user to add</td>
+  <td>A JSON object holding data about a new user to add, with ID generated</td>
+</tr>
+
+<!-- allow users to update their info -->
+<tr>
+  <td>Allow users to update their user info (username)</td>
+  <td>/users/:id</td>
+  <td>PUT</td>
+  <td>none</td>
+  <td>A text with user info</td>
+</tr>
+
+<!-- allow users to add movie to favorite list -->
+<tr>
+  <td>Allow users to add a movie to their list of favorites</td>
+  <td>/users/:id/:title</td>
+  <td>POST</td>
+  <td>A JSON object holding data about a user</td>
+  <td>A text that a movie has been added</td>
+</tr>
+
+<!-- allow users to remove movie from favorite list -->
+<tr>
+  <td>Allow users to remove a movie from their list of favorites</td>
+  <td>/users/username/movies/:title</td>
+  <td>DELETE</td>
+  <td>none</td>
+  <td>A text that a movie has been removed</td>
+</tr>
+
+<!-- allow users to deregister -->
+<tr>
+  <td>Allow existing users to deregister</td>
+  <td>/users/:id</td>
+  <td>DELETE</td>
+  <td>none</td>
+  <td>A text that a user email has been removed</td>
+</tr>
+
+  </body>
+</html>
