@@ -51,7 +51,25 @@
     <td>/movies/:title</td>
     <td>GET</td>
     <td>none</td>
-    <td>A JSON object holding data about a single movie, (containing: description, genre, director, image URL) by title</td>
+    <td>A JSON object holding data about a single movie e.g., <br> {
+      title: "Breakfast at Tiffanys",
+      director: {
+        name: "Blake Edwards",
+        bio: " An American film director, producer, screenwriter, and actor. Edwards began his career in the 1940s as an actor, but he soon began writing screenplays and radio scripts before turning to producing and directing in television and films.",
+        birthYear: "1922",
+        deathYear: "2010",
+      },
+      year: "1961",
+      genre: {
+        name: "romance",
+        description:
+          "Romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters. Typically their journey through dating, courtship or marriage is featured. These films make the search for romantic love the main plot focus.",
+      },
+      description:
+        "A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way.",
+      imageURL:
+        "upload.wikimedia.org/wikipedia/commons/4/4b/Breakfast_at_Tiffany%27s_%281961_poster%29.jpg",
+    }</td>
 </tr>
 
 <!-- return data about a genre -->
@@ -60,7 +78,11 @@
     <td>/movies/genre/:genre</td>
     <td>GET</td>
     <td>none</td>
-    <td>A JSON object holding data about description by genre</td>
+    <td>A JSON object holding data about description by genre e.g., <br> genre: {
+      name: "drama",
+      description:
+        "A category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.",
+    }</td>
 </tr>
 
 <!--return data about director by name -->
@@ -69,7 +91,12 @@
     <td>/movies/directors/:name</td>
     <td>GET</td>
     <td>none</td>
-    <td>A JSON object holding data about a director (bio, birth year, death year) by name</td>
+    <td>A JSON object holding data about a director by name e.g., <br> director: {
+      name: "Charles Chaplin",
+      bio: "An English comic actor, filmmaker, and composer who rose to fame in the era of silent film. He became a worldwide icon through his screen persona, the Tramp, and is considered one of the film industry's most important figures",
+      birthYear: "1889",
+      deathYear: "1977",
+    }</td>
 </tr>
 
 <!-- allow users to register -->
@@ -77,8 +104,13 @@
   <td>Allow new users to register</td>
   <td>/users</td>
   <td>POST</td>
-  <td>A JSON object holding data about a new user to add</td>
-  <td>A JSON object holding data about a new user to add, with ID generated</td>
+  <td>A JSON object holding data about a new user to add, e.g., <br> "name": "Mary",
+    "favoriteMovies": [] </td>
+  <td>A JSON object holding data about a new user to add, with ID generated e.g., <br> {
+    "name": "Mary",
+    "favoriteMovies": [],
+    "id": "90b014b6-88bf-480b-9e35-8cfae613de76"
+}</td>
 </tr>
 
 <!-- allow users to update their info -->
@@ -87,7 +119,7 @@
   <td>/users/:id</td>
   <td>PUT</td>
   <td>none</td>
-  <td>A text with user info</td>
+  <td>A text confirming username has been updated e.g., <br> 'Successful. Your username has been updated'</td>
 </tr>
 
 <!-- allow users to add movie to favorite list -->
@@ -95,8 +127,12 @@
   <td>Allow users to add a movie to their list of favorites</td>
   <td>/users/:id/:title</td>
   <td>POST</td>
-  <td>A JSON object holding data about a user</td>
-  <td>A text that a movie has been added</td>
+  <td>A JSON object holding data about a user e.g., {
+    id: 1,
+    name: "Andie",
+    favoriteMovies: [],
+  }</td>
+  <td>A text that a movie has been added e.g., <br> Casablanca has been added to user 1's array</td>
 </tr>
 
 <!-- allow users to remove movie from favorite list -->
@@ -104,8 +140,8 @@
   <td>Allow users to remove a movie from their list of favorites</td>
   <td>/users/username/movies/:title</td>
   <td>DELETE</td>
-  <td>none</td>
-  <td>A text that a movie has been removed</td>
+  <td>none <br> </td>
+  <td>A text that a movie has been removed e.g., <br> Casablanca has been removed from user 1's array</td>
 </tr>
 
 <!-- allow users to deregister -->
@@ -114,7 +150,7 @@
   <td>/users/:id</td>
   <td>DELETE</td>
   <td>none</td>
-  <td>A text that a user email has been removed</td>
+  <td>A text that a user email has been removed e.g., <br> user 1 has been deleted</td>
 </tr>
 
   </body>
