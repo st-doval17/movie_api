@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>documentation API</title>
   </head>
@@ -20,138 +22,267 @@
     </p>
 
     <table>
-        <!-- list of URL endpoints -->
-        <tr class="data_formats">
-            <td>Business Logic</td>
-            <td>URL</td>
-            <td>HTTP Method</td>
-            <td>Request Body Data Format</td>
-            <td>Response Body Data Format</td>
-        </tr>
+      <!-- list of URL endpoints -->
+      <tr class="data_formats">
+        <td>Business Logic</td>
+        <td>URL</td>
+        <td>HTTP Method</td>
+        <td>Request Body Data Format</td>
+        <td>Response Body Data Format</td>
+      </tr>
 
- <tr>
-  <td>Root directory</td>
-  <td>/</td>
-  <td>GET</td>
-  <td>none</td>
-  <td>A text welcoming user to page</td>
- </tr>       
- <!-- return all movies -->       
-<tr>
-    <td>Get a list of all movies</td>
-    <td>/movies</td>
-    <td>GET</td>
-    <td>none</td>
-    <td>A JSON object holding data about all the movies</td>
-</tr>
+      <tr>
+        <td>Root directory</td>
+        <td>/</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>A text welcoming user to page</td>
+      </tr>
+      <!-- return all movies -->
+      <tr>
+        <td>Get a list of all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>
+          A JSON object holding data about all the movies e.g.,
+          <pre>
+    [
+        {
+        "title": "Breakfast at Tiffanys",
+        "director": 
+          {
+            "name": "Blake Edwards",
+            "bio": "An American film director, producer, screenwriter, and actor. Edwards began
+            his career in the 1940s as an actor, but he soon began writing screenplays and radio 
+            scripts before turning to producing and directing in television and films.",
+            "birthYear": "1922",
+            "deathYear": "2010"
+          },
+        "year": "1961",
+        "genre": 
+          {
+            "name": "romance",
+            "description": 
+            "Romantic love stories recorded in visual media for broadcast in theatres or on television
+            that focus on passion, emotion, and the affectionate romantic involvement of the main characters.
+            Typically their journey through dating, courtship or marriage is featured. These films make the
+            search for romantic love the main plot focus."
+          },
+        "description": "A young New York socialite becomes interested in a young man who has moved into her 
+        apartment building, but her past threatens to get in the way.",
+        "imageURL": "upload.wikimedia.org/wikipedia/commons/4/4b/Breakfast_at_Tiffany%27s_%281961_poster%29.jpg"
+        },
+        {
+        "title": "Gone with the Wind",
+        "director": 
+          {
+            "name": "Victor Fleming",
+            "bio": "An American film director, cinematographer, and producer.",
+            "birthYear": "1889",
+            "deathYear": "1949"
+          },
+        "year": "1939",
+        "genre": 
+          {
+            "name": "drama",
+            "description": "A category or genre of narrative fiction (or semi-fiction) intended to be more 
+            serious than humorous in tone."
+          },
+        "description": "A sheltered and manipulative Southern belle and a roguish profiteer face off in 
+        a turbulent romance as the society around them crumbles with the end of slavery and is rebuilt during 
+        the Civil War and Reconstruction periods.",
+        "imageURL": "upload.wikimedia.org/wikipedia/commons/2/27/Poster_-_Gone_With_the_Wind_01.jpg"
+        },
+        </pre
+          >
+        </td>
+      </tr>
 
-<!-- return data about single movie by title -->
-<tr>
-    <td>Get data about a single movie by title</td>
-    <td>/movies/:title</td>
-    <td>GET</td>
-    <td>none</td>
-    <td>A JSON object holding data about a single movie e.g., <br> {
-      title: "Breakfast at Tiffanys",
-      director: {
-        name: "Blake Edwards",
-        bio: " An American film director, producer, screenwriter, and actor. Edwards began his career in the 1940s as an actor, but he soon began writing screenplays and radio scripts before turning to producing and directing in television and films.",
-        birthYear: "1922",
-        deathYear: "2010",
-      },
+      <!-- return data about single movie by title -->
+      <tr>
+        <td>Get data about a single movie by title</td>
+        <td>/movies/:title</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>
+          A JSON object holding data about a single movie e.g.,
+          <pre>
+      {
+        title: "Breakfast at Tiffanys", 
+        director: 
+          {
+            name: "Blake Edwards",
+            bio: "An American film director, producer, screenwriter, and actor. 
+            Edwards began his career in the 1940s as an actor, but he soon began writing 
+            screenplays and radio scripts before turning to producing and directing in television and films.",
+            birthYear: "1922",
+            deathYear: "2010"
+          },
       year: "1961",
-      genre: {
-        name: "romance",
-        description:
-          "Romantic love stories recorded in visual media for broadcast in theatres or on television that focus on passion, emotion, and the affectionate romantic involvement of the main characters. Typically their journey through dating, courtship or marriage is featured. These films make the search for romantic love the main plot focus.",
-      },
+      genre: 
+          {
+            name: "romance",
+            description: 
+            "Romantic love stories recorded in visual media for broadcast in theatres or on television 
+            that focus on passion, emotion, and the affectionate romantic involvement of the main characters. 
+            Typically their journey through dating, courtship or marriage is featured. These films make the 
+            search for romantic love the main plot focus.",
+          },
       description:
-        "A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way.",
+          "A young New York socialite becomes interested in a young man who has moved into her apartment
+          building, but her past threatens to get in the way.",
       imageURL:
-        "upload.wikimedia.org/wikipedia/commons/4/4b/Breakfast_at_Tiffany%27s_%281961_poster%29.jpg",
-    }</td>
-</tr>
+          "upload.wikimedia.org/wikipedia/commons/4/4b/Breakfast_at_Tiffany%27s_%281961_poster%29.jpg"
+      }
+  </pre
+          >
+        </td>
+      </tr>
 
-<!-- return data about a genre -->
-<tr>
-    <td>Get data about genre (description) by name/title</td>
-    <td>/movies/genre/:genre</td>
-    <td>GET</td>
-    <td>none</td>
-    <td>A JSON object holding data about description by genre e.g., <br> genre: {
-      name: "drama",
-      description:
-        "A category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone.",
-    }</td>
-</tr>
+      <!-- return data about a genre -->
+      <tr>
+        <td>Get data about genre (description) by name/title</td>
+        <td>/movies/genre/:genre</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>
+          A JSON object holding data about description by genre e.g.,
+          <pre>
+      genre: 
+          { 
+            name: "drama", 
+            description: "A category or genre of narrative fiction (or semi-fiction) intended to be more serious
+            than humorous in tone."
+          }
+      </pre
+          >
+        </td>
+      </tr>
 
-<!--return data about director by name -->
-<tr>
-    <td>Return data about a director (bio, birth year, death year) by name</td>
-    <td>/movies/directors/:name</td>
-    <td>GET</td>
-    <td>none</td>
-    <td>A JSON object holding data about a director by name e.g., <br> director: {
-      name: "Charles Chaplin",
-      bio: "An English comic actor, filmmaker, and composer who rose to fame in the era of silent film. He became a worldwide icon through his screen persona, the Tramp, and is considered one of the film industry's most important figures",
-      birthYear: "1889",
-      deathYear: "1977",
-    }</td>
-</tr>
+      <!--return data about director by name -->
+      <tr>
+        <td>
+          Return data about a director (bio, birth year, death year) by name
+        </td>
+        <td>/movies/directors/:name</td>
+        <td>GET</td>
+        <td>none</td>
+        <td>
+          A JSON object holding data about a director by name e.g.,
+          <pre>
+          director: 
+          { 
+            name: "Charles Chaplin", 
+            bio: "An English comic actor, filmmaker, and composer who rose to fame in the era of silent film. 
+            He became a worldwide icon through his screen persona, the Tramp, and is considered one of the film 
+            industry's most important figures.",
+            birthYear: "1889",
+            deathYear: "1977" 
+          }
+        </pre
+          >
+        </td>
+      </tr>
 
-<!-- allow users to register -->
-<tr>
-  <td>Allow new users to register</td>
-  <td>/users</td>
-  <td>POST</td>
-  <td>A JSON object holding data about a new user to add, e.g., <br> "name": "Mary",
-    "favoriteMovies": [] </td>
-  <td>A JSON object holding data about a new user to add, with ID generated e.g., <br> {
+      <!-- allow users to register -->
+      <tr>
+        <td>Allow new users to register</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about a new user to add, e.g.,
+          <pre>
+  {
     "name": "Mary",
-    "favoriteMovies": [],
-    "id": "90b014b6-88bf-480b-9e35-8cfae613de76"
-}</td>
-</tr>
+    "favoriteMovies": []
+  }
+        </pre
+          >
+        </td>
+        <td>
+          A JSON object holding data about a new user to add, with ID generated
+          e.g.,
+          <pre>
+          {
+            "name": "Mary",
+            "favoriteMovies": [],
+            "id": "90b014b6-88bf-480b-9e35-8cfae613de76"
+          }
+</pre
+          >
+        </td>
+      </tr>
 
-<!-- allow users to update their info -->
-<tr>
-  <td>Allow users to update their user info (username)</td>
-  <td>/users/:id</td>
-  <td>PUT</td>
-  <td>none</td>
-  <td>A text confirming username has been updated e.g., <br> 'Successful. Your username has been updated'</td>
-</tr>
+      <!-- allow users to update their info -->
+      <tr>
+        <td>Allow users to update their user info (username)</td>
+        <td>/users/:id</td>
+        <td>PUT</td>
+        <td>none</td>
+        <td>
+          A text confirming username has been updated e.g.,
+          <pre>
+          'Successful. Your username has been updated'
+        </pre
+          >
+        </td>
+      </tr>
 
-<!-- allow users to add movie to favorite list -->
-<tr>
-  <td>Allow users to add a movie to their list of favorites</td>
-  <td>/users/:id/:title</td>
-  <td>POST</td>
-  <td>A JSON object holding data about a user e.g., {
-    id: 1,
+      <!-- allow users to add movie to favorite list -->
+      <tr>
+        <td>Allow users to add a movie to their list of favorites</td>
+        <td>/users/:id/:title</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about a user e.g.,
+          <pre>
+  { 
+    id: 1, 
     name: "Andie",
-    favoriteMovies: [],
-  }</td>
-  <td>A text that a movie has been added e.g., <br> Casablanca has been added to user 1's array</td>
-</tr>
+    favoriteMovies: []
+  }
+      </pre
+          >
+        </td>
+        <td>
+          A text that a movie has been added e.g.,
+          <pre>
+          'Casablanca has been added to user 1's array'
+        </pre
+          >
+        </td>
+      </tr>
 
-<!-- allow users to remove movie from favorite list -->
-<tr>
-  <td>Allow users to remove a movie from their list of favorites</td>
-  <td>/users/username/movies/:title</td>
-  <td>DELETE</td>
-  <td>none <br> </td>
-  <td>A text that a movie has been removed e.g., <br> Casablanca has been removed from user 1's array</td>
-</tr>
+      <!-- allow users to remove movie from favorite list -->
+      <tr>
+        <td>Allow users to remove a movie from their list of favorites</td>
+        <td>/users/username/movies/:title</td>
+        <td>DELETE</td>
+        <td>none <br /></td>
+        <td>
+          A text that a movie has been removed e.g.,
+          <pre>
+          'Casablanca has been removed from user 1's array'
+        </pre
+          >
+        </td>
+      </tr>
 
-<!-- allow users to deregister -->
-<tr>
-  <td>Allow existing users to deregister</td>
-  <td>/users/:id</td>
-  <td>DELETE</td>
-  <td>none</td>
-  <td>A text that a user email has been removed e.g., <br> user 1 has been deleted</td>
-</tr>
-
+      <!-- allow users to deregister -->
+      <tr>
+        <td>Allow existing users to deregister</td>
+        <td>/users/:id</td>
+        <td>DELETE</td>
+        <td>none</td>
+        <td>
+          A text that a user email has been removed e.g.,
+          <pre>
+          'user 1 has been deleted'
+        </pre
+          >
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
