@@ -219,13 +219,28 @@
         <td>Allow users to update their user info (username)</td>
         <td>/users/:id</td>
         <td>PUT</td>
-        <td>none</td>
         <td>
-          A text confirming username has been updated e.g.,
+          A JSON object holding the updated user name
           <pre>
-          'Successful. Your username has been updated'
-        </pre
-          >
+            {
+              "Username": "tester1",
+              "Password": "1234",
+              "Email": "tester@email.com",
+              "Birthday": "2000-08-03"
+          }
+          </pre>
+        </td>
+        <td>
+          A JSON object holding the users original information with the updated
+          information
+          <pre>
+            {
+              "Username": "tester1",
+              "Password": "1movies",
+              "Email": "tester@email.com",
+              "Birthday": "2000-08-03"
+          }
+          </pre>
         </td>
       </tr>
 
@@ -238,17 +253,22 @@
           A JSON object holding data about a user e.g.,
           <pre>
   { 
-    id: 1, 
-    name: "Andie",
-    favoriteMovies: []
+    "Username": "tester1",
+    "FavoriteMovies": []
   }
       </pre
           >
         </td>
         <td>
-          A text that a movie has been added e.g.,
+          A JSON object holding user data with movie id added e.g.,
           <pre>
-          'Casablanca has been added to user 1's array'
+            {
+              "Username": "tester1",
+              "Password": "movies",
+              "Email": "tester@email.com",
+              "Birthday": "2000-08-03" 
+              "FavoriteMovies": "649dc43953a1483d9c03a95e"
+          }
         </pre
           >
         </td>
@@ -259,11 +279,29 @@
         <td>Allow users to remove a movie from their list of favorites</td>
         <td>/users/username/movies/:title</td>
         <td>DELETE</td>
-        <td>none <br /></td>
         <td>
-          A text that a movie has been removed e.g.,
+          A JSON object holding user data e.g.,
           <pre>
-          'Casablanca has been removed from user 1's array'
+            {
+              "Username": "tester1",
+              "Password": "movies",
+              "Email": "tester@email.com",
+              "Birthday": "2000-08-03" 
+              "FavoriteMovies": "649dc43953a1483d9c03a95e"
+          }
+        </pre
+          >
+        </td>
+        <td>
+          A JSON object holding user data with movie id removed e.g.,
+          <pre>
+            {
+              "Username": "tester1",
+              "Password": "movies",
+              "Email": "tester@email.com",
+              "Birthday": "2000-08-03" 
+              "FavoriteMovies": []
+          }
         </pre
           >
         </td>
@@ -274,11 +312,11 @@
         <td>Allow existing users to deregister</td>
         <td>/users/:id</td>
         <td>DELETE</td>
-        <td>none</td>
+        <td>A JSON object holding user data</td>
         <td>
-          A text that a user email has been removed e.g.,
+          A text that a user username has been removed e.g.,
           <pre>
-          'user 1 has been deleted'
+          'tester1 was deleted'
         </pre
           >
         </td>
