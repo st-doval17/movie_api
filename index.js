@@ -61,7 +61,11 @@ app.get("/movies/:Title", (req, res) => {
 app.get("/movies/genre/:genreName", (req, res) => {
   Movies.findOne({ "Genre.Name": req.params.genreName })
     .then((movie) => {
-      res.json(movie.Genre);
+      if (movie) return res.json(movie.Genre);
+      else
+        res
+          .status(500)
+          .send("Error: " + req.params.genreName + " is not found");
     })
     .catch((err) => {
       console.error(err);
@@ -124,9 +128,8 @@ app.post("/users/:userName/movies/:MovieID", async (req, res) => {
     const updatedUser = await Users.findOneAndUpdate(
       { Username: req.params.userName },
       {
-        $set: { FavoriteMovies: req.params.MovieID },
-      },
-      { new: true }
+        $addToSet: { FavoriteMovies: req.params.MovieID },
+      }
     );
     res.json(updatedUser);
   } catch (err) {
