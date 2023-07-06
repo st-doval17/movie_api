@@ -257,3 +257,10 @@ POST /login?Username=test1&Password=test1 200 553 - 5.883 ms
 POST /login?Username=test1&Password=test 400 49 - 4.298 ms
 POST /login?Username=stpatrick&Password=grreen 400 49 - 6.779 ms
 POST /login?Username=stpatrick&Password=green 200 567 - 4.974 ms
+POST /login?Username=stpatrick&Password=grreen 400 49 - 5.891 ms
+POST /login?Username=stpatrick&Password=grreen 400 49 - 22.822 ms
+POST /login?Username=stpatrick&Password=green 200 567 - 29.465 ms
+POST /movies 404 146 - 3.280 ms
+GET /movies 201 9316 - 17.809 ms
+POST /users 500 136 - 30.781 ms
+GET /users 201 1177 - 10.074 ms
