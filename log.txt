@@ -231,3 +231,7 @@ POST /login?Username=test1&Password=test1 400 36 - 33.434 ms
 POST /login?Username=test1&Password=test1 400 36 - 44.611 ms
 POST /login?Username=test1&Password=test1 400 36 - 30.536 ms
 POST /login?Username=test1&Password=test1 400 36 - 32.847 ms
+POST /login?Username=test1&Password=test1 400 36 - 48.141 ms
+POST /login?Username=test1&Password=test1 400 36 - 28.066 ms
+POST /login?Username=test1&Password=test1 200 553 - 46.356 ms
+GET /movies 201 9316 - 21.267 ms
