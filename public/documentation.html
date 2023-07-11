@@ -143,7 +143,7 @@
       <!-- return data about a genre -->
       <tr>
         <td>Get data about genre (description) by name/title</td>
-        <td>/movies/genre/:genre</td>
+        <td>/movies/genre/:genreName</td>
         <td>GET</td>
         <td>none</td>
         <td>
@@ -165,7 +165,7 @@
         <td>
           Return data about a director (bio, birth year, death year) by name
         </td>
-        <td>/movies/directors/:name</td>
+        <td>/movies/director/:directorName</td>
         <td>GET</td>
         <td>none</td>
         <td>
@@ -217,7 +217,7 @@
       <!-- allow users to update their info -->
       <tr>
         <td>Allow users to update their user info (username)</td>
-        <td>/users/:id</td>
+        <td>/users/:userName</td>
         <td>PUT</td>
         <td>
           A JSON object holding the updated user name
@@ -247,7 +247,7 @@
       <!-- allow users to add movie to favorite list -->
       <tr>
         <td>Allow users to add a movie to their list of favorites</td>
-        <td>/users/:id/:title</td>
+        <td>/users/:userName/movies/:MovieID</td>
         <td>POST</td>
         <td>
           A JSON object holding data about a user e.g.,
@@ -277,7 +277,7 @@
       <!-- allow users to remove movie from favorite list -->
       <tr>
         <td>Allow users to remove a movie from their list of favorites</td>
-        <td>/users/username/movies/:title</td>
+        <td>/users/userName/movies/:title</td>
         <td>DELETE</td>
         <td>
           A JSON object holding user data e.g.,
@@ -310,7 +310,7 @@
       <!-- allow users to deregister -->
       <tr>
         <td>Allow existing users to deregister</td>
-        <td>/users/:id</td>
+        <td>/users/:userName</td>
         <td>DELETE</td>
         <td>A JSON object holding user data</td>
         <td>
