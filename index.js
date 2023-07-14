@@ -136,10 +136,10 @@ app.get(
 app.post(
   "/users",
   [
-    check("userName", "userName is required").isLength({ min: 5 }),
+    check("Username", "Username is required").isLength({ min: 5 }),
     check(
-      "userName",
-      "userName contains non alphanumeric characters - not allowed."
+      "Username",
+      "Username contains non alphanumeric characters - not allowed."
     ).isAlphanumeric(),
     check("Password", "Password is required").not().isEmpty(),
     check("Email", "Email does not appear to be valid").isEmail(),
