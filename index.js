@@ -219,7 +219,7 @@ app.put(
   async (req, res) => {
     try {
       const updatedUser = await Users.findOneAndUpdate(
-        { Username: req.params.Username },
+        { Username: req.params.userName },
         {
           $set: {
             Username: req.body.Username,
