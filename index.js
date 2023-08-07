@@ -154,27 +154,10 @@ app.get(
   (req, res) => {
     const userName = req.params.userName;
 
-    User.findOne({ Username: userName })
-      .then((user) => {
-        if (user) {
-          const favoriteMovies = user.FavoriteMovies;
-          return favoriteMovies;
-        } else {
-          res.status(404).send("User not found");
-        }
-      })
+    Users.findOne({ Username: userName }, "FavoriteMovies")
+      .populate("FavoriteMovies")
       .then((favoriteMovies) => {
-        Movies.find()
-          .then((movies) => {
-            const userFavoriteMovies = movies.filter((movie) =>
-              favoriteMovies.includes(movie._id)
-            );
-            res.status(200).json(userFavoriteMovies);
-          })
-          .catch((err) => {
-            console.error(err);
-            res.status(500).send("Error: " + err);
-          });
+        res.send(favoriteMovies.FavoriteMovies);
       })
       .catch((err) => {
         console.error(err);
