@@ -152,9 +152,29 @@ app.get(
   "/favoriteMovies/:userName",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Movies.find()
-      .then((movies) => {
-        res.status(201).json(movies);
+    const userName = req.params.userName;
+
+    User.findOne({ Username: userName })
+      .then((user) => {
+        if (user) {
+          const favoriteMovies = user.FavoriteMovies;
+          return favoriteMovies;
+        } else {
+          res.status(404).send("User not found");
+        }
+      })
+      .then((favoriteMovies) => {
+        Movies.find()
+          .then((movies) => {
+            const userFavoriteMovies = movies.filter((movie) =>
+              favoriteMovies.includes(movie._id)
+            );
+            res.status(200).json(userFavoriteMovies);
+          })
+          .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error: " + err);
+          });
       })
       .catch((err) => {
         console.error(err);
