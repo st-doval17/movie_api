@@ -148,6 +148,21 @@ app.get(
   }
 );
 
+app.get(
+  "/favoriteMovies/:userName",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Movies.find()
+      .then((movies) => {
+        res.status(201).json(movies);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
 // POST route request -- allows users to register
 app.post(
   "/users",
