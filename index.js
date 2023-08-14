@@ -37,7 +37,11 @@ app.use(morgan("tiny", { stream: accessLogStream }));
 app.use(express.static("public"));
 
 const cors = require("cors");
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
+let allowedOrigins = [
+  "http://localhost:8080",
+  "http://localhost:1234",
+  "https://myflix-gs.netlify.app",
+];
 
 app.use(
   cors({
@@ -230,25 +234,6 @@ app.post(
   }
 );
 
-app.delete(
-  "/users/:userName/movies/:MovieID",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Users.findOneAndUpdate(
-      { Username: req.params.userName },
-      { $pull: { FavoriteMovies: req.params.MovieID } },
-      { new: true }
-    )
-      .then((updatedUser) => {
-        res.json(updatedUser.FavoriteMovies);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error: " + err);
-      });
-  }
-);
-
 // PUT route request
 app.put(
   "/users/:userName",
@@ -277,20 +262,19 @@ app.put(
 app.delete(
   "/users/:userName/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const updatedUser = await Users.findOneAndUpdate(
-        { Username: req.params.Username },
-        {
-          $pull: { FavoriteMovies: req.params.MovieID },
-        },
-        { new: true }
-      );
-      res.json(updatedUser);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    }
+  (req, res) => {
+    Users.findOneAndUpdate(
+      { Username: req.params.userName },
+      { $pull: { FavoriteMovies: req.params.MovieID } },
+      { new: true }
+    )
+      .then((updatedUser) => {
+        res.json(updatedUser.FavoriteMovies);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
   }
 );
 
