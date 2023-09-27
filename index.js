@@ -60,6 +60,7 @@ let allowedOrigins = [
   'http://localhost:1234',
   'https://myflix-gs.netlify.app',
   'http://localhost:4200',
+  'https://st-doval17.github.io/angular-flix',
 ];
 
 app.use(
