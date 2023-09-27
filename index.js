@@ -62,6 +62,7 @@ let allowedOrigins = [
   'http://localhost:4200',
   'https://st-doval17.github.io/angular-flix',
   'https://st-doval17.github.io',
+  'https://sandoval-flixdb-eadce14b2925.herokuapp.com',
 ];
 
 app.use(
